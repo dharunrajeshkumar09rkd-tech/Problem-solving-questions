@@ -1,0 +1,72 @@
+-- ============================================================================
+-- MYSQL SOLUTIONS
+-- ============================================================================
+
+-- UPDATE TASKS
+-- 1. Update manager_id of employee 108.
+UPDATE employees 
+SET manager_id = 200 
+WHERE employee_id = 108;
+
+-- 2. Update salary greater than 50000.
+UPDATE employees 
+SET salary = salary * 1.10 
+WHERE salary < 50000;
+
+
+-- DELETE TASKS
+-- 1. Delete employee 110.
+DELETE FROM employees 
+WHERE employee_id = 110;
+
+-- 2. Delete all HR employees.
+DELETE FROM employees 
+WHERE department = 'HR';
+
+-- 3. Delete employees whose salary is less than 35000.
+DELETE FROM employees 
+WHERE salary < 35000;
+
+-- 4. Delete employees from Bangalore.
+DELETE FROM employees 
+WHERE city = 'Bangalore';
+
+-- 5. Delete employees older than 30.
+DELETE FROM employees 
+WHERE age > 30;
+
+
+-- ORDER BY TASKS
+-- 1. Display employees ordered by age.
+SELECT * FROM employees 
+ORDER BY age ASC;
+
+-- 2. Sort employees by name.
+SELECT * FROM employees 
+ORDER BY name ASC;
+
+
+-- GROUP BY TASKS
+-- 1. Count employees city-wise.
+SELECT city, COUNT(*) AS total_employees 
+FROM employees 
+GROUP BY city;
+
+-- 2. Find average salary city-wise.
+SELECT city, AVG(salary) AS average_salary 
+FROM employees 
+GROUP BY city;
+
+
+-- BUILT-IN FUNCTIONS
+-- 1. Find total salary.
+SELECT SUM(salary) AS total_salary 
+FROM employees;
+
+-- 2. Display employee names in uppercase.
+SELECT UPPER(name) AS uppercase_name 
+FROM employees;
+
+-- 3. Display employee names in lowercase.
+SELECT LOWER(name) AS lowercase_name 
+FROM employees;
